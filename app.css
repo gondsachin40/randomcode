@@ -1,0 +1,265 @@
+/* * { box-sizing: border-box; }
+
+        body { margin: 0; }
+
+        .app {
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: 0.3s;
+        }
+
+        .app.dark {
+          background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+          color: #fff;
+        }
+
+        .app.light {
+          background: linear-gradient(135deg,#fdfbfb,#ebedee);
+          color: #111;
+        }
+
+        .card {
+          width: 100%;
+          max-width: 850px;
+          background: rgba(255,255,255,0.08);
+          backdrop-filter: blur(15px);
+          padding: 25px;
+          border-radius: 18px;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+          margin: 0 0 15px;
+        }
+
+        .top-controls {
+          display: flex;
+          gap: 12px;
+          margin-bottom: 20px;
+        }
+
+        select, .theme-btn {
+          padding: 8px 12px;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          font-weight: 600;
+        }
+
+        .buttons {
+          display: flex;
+          gap: 12px;
+          margin-bottom: 15px;
+        }
+
+        button {
+          padding: 12px 18px;
+          border-radius: 10px;
+          border: none;
+          font-size: 16px;
+          cursor: pointer;
+          transition: 0.2s;
+        }
+
+        .start {
+          background: linear-gradient(135deg,#00c6ff,#0072ff);
+          color: white;
+        }
+
+        .start.active {
+          box-shadow: 0 0 20px #00c6ff;
+        }
+
+        .stop {
+          background: linear-gradient(135deg,#ff512f,#dd2476);
+          color: white;
+        }
+
+        .editor {
+          width: 100%;
+          min-height: 240px;
+          resize: vertical;
+          border-radius: 14px;
+          padding: 15px;
+          font-size: 18px;
+          line-height: 1.6;
+          outline: none;
+          border: none;
+        }
+
+        .dark .editor {
+          background: #0f172a;
+          color: #fff;
+        }
+
+        .light .editor {
+          background: #fff;
+          color: #000;
+        } */
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.app.dark {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+.app.light {
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  color: #111;
+}
+
+/* THEME TOGGLE */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.switch {
+  position: relative;
+  width: 44px;
+  height: 22px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #999;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background: #00c6ff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+/* CARD */
+.card {
+  width: 100%;
+  max-width: 850px;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+header h1 {
+  margin: 0;
+}
+
+select {
+  margin: 15px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+}
+
+/* EDITOR */
+.editor-wrapper {
+  position: relative;
+}
+
+.editor {
+  width: 100%;
+  min-height: 220px;
+  border-radius: 14px;
+  padding: 15px;
+  font-size: 18px;
+  line-height: 1.6;
+  border: none;
+  resize: vertical;
+  outline: none;
+  
+}
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.dark .editor {
+  background: #0f172a;
+  color: #fff;
+}
+
+.light .editor {
+  background: #fff;
+  color: #000;
+}
+
+.interim {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  opacity: 0.5;
+  pointer-events: none;
+  padding: 10px 14px;
+}
+
+/* BUTTON */
+.main-btn {
+  margin-top: 18px;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  transition: 0.3s;
+}
+
+.main-btn.active {
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  box-shadow: 0 0 25px rgba(255, 80, 80, 0.8);
+}
